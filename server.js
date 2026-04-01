@@ -56,7 +56,7 @@ app.get('/bacheca', (req, res) => {
 
 /* Mostro un post */
 app.get('/bacheca/:id', (req, res) => {
-  res.send('Ecco il post con id' + req.param.id);
+  res.send('Ecco il post con id ' + req.params.id);
 });
 
 /* Creo un nuovo post */
@@ -66,17 +66,17 @@ app.post('/bacheca', (req, res) => {
 
 /* Aggiorno tutto un post */
 app.put('/bacheca/:id', (req, res) => {
-  res.send('NEW! Post aggiornato' + req.param.id);
+  res.send('NEW! Post aggiornato ' + req.params.id);
 });
 
 /* Aggiorno parte di un post */
 app.patch('/bacheca/:id', (req, res) => {
-  res.send('Post aggiornato (minor updates)' + req.param.id);
+  res.send('Post aggiornato (minor updates)' + req.params.id);
 });
 
 /* Elimino un post */
 app.delete('bacheca/:id', (req, res) => {
-  res.send('Post eliminato' + req.param.id);
+  res.send('Post eliminato' + req.params.id);
 });
 
 
