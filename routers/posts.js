@@ -46,7 +46,7 @@ router.get('/', (req, res) => {
 });
 
 /* Mostro un post */
-router.get('/:id', (req, res) => {      
+router.get('/:id', (req, res) => {
   res.json(posts.filter(post => post.id == req.params.id));
 });
 
@@ -68,7 +68,14 @@ router.patch('/:id', (req, res) => {
 
 /* Elimino un post */
 router.delete('/:id', (req, res) => {
-  res.send(`Post ${req.params.id} eliminato`);
+  res.send(
+    // 3)👇 uso index per rimuoverlo  1)👇trovo il post
+    posts.splice(posts.indexOf(posts.filter(post => post.id == req.params.id)), 1)
+    //                   👆 2) ricavo il suo index
+  )
 });
+/* router.delete('/:id', (req, res) => {
+  res.send(`Post ${req.params.id} eliminato`);
+}); */
 
 module.exports = router;
