@@ -42,13 +42,17 @@ const posts = [
 
 /* Lista Post (Index) */
 router.get('/', (req, res) => {
-  res.json({ posts });
+  res.json(posts);
 });
 
 /* Mostro un post */
-router.get('/:id', (req, res) => {
+/* router.get('/:id', (req, res) => {
   res.send(`Ecco il post con id ${req.params.id}`);
-});
+}); */
+router.get('/:id', (req, res) => {  
+    
+    res.send(posts[req.params.id - 1]);
+  });
 
 /* Creo un nuovo post */
 router.post('/', (req, res) => {
