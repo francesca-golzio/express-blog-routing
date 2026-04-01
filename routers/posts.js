@@ -46,13 +46,9 @@ router.get('/', (req, res) => {
 });
 
 /* Mostro un post */
-/* router.get('/:id', (req, res) => {
-  res.send(`Ecco il post con id ${req.params.id}`);
-}); */
-router.get('/:id', (req, res) => {  
-    
-    res.send(posts[req.params.id - 1]);
-  });
+router.get('/:id', (req, res) => {      
+  res.json(posts.filter(post => post.id == req.params.id));
+});
 
 /* Creo un nuovo post */
 router.post('/', (req, res) => {
